@@ -7,10 +7,11 @@
 #include "Arrayqueue.h"
 #include "Listqueue.h"
 
-void test_SingleList(){
-    SingleList<double> a;
-    std::cout << "--------------Empty SingleList test!------------" << std::endl;
+void test_Singlelist(){
+    Singlelist<double> a;
+    std::cout << "--------------Empty Singlelist test!------------" << std::endl;
     a.print().del(10);
+    std::cout << a.size() << std::endl;
     std::cout << "--------------insert test!------------" << std::endl;
     std::cout << "initialize insert!" << std::endl;
     a.insert_last(10.0).insert_last(20.0).insert_last(30.0).print();
@@ -37,15 +38,15 @@ void test_SingleList(){
     std::cout << "get value test!" << std::endl;
     std::cout << a.get_value(2) << std::endl;
     std::cout << "--------------pointer test!------------" << std::endl;
-    SingleList<double>::pointer p = a.get_head();
+    Singlelist<double>::pointer p = a.get_head();
     for(p; p != NULL; p = p->_next){
         std::cout << "index: " << p->_index << " data: " << p->_value << std::endl;
     }
 }
-
+/*
 void test_DoubleList(){
     DoubleList<double> a;
-    std::cout << "--------------Empty SingleList test!------------" << std::endl;
+    std::cout << "--------------Empty Singlelist test!------------" << std::endl;
     a.print();
     std::cout << "-------------------insert test!-----------------" << std::endl;
     std::cout << "initialize insert!" << std::endl;
@@ -142,8 +143,12 @@ void test_Listqueue(){
         std::cout << p->_value << std::endl;
     }
 }
+*/
+
 
 int main(){
+
+    test_Singlelist();
 
     return 0;
 }
