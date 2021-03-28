@@ -43,10 +43,10 @@ void test_Singlelist(){
         std::cout << "index: " << p->_index << " data: " << p->_value << std::endl;
     }
 }
-/*
-void test_DoubleList(){
-    DoubleList<double> a;
-    std::cout << "--------------Empty Singlelist test!------------" << std::endl;
+
+void test_Doublelist(){
+    Doublelist<double> a;
+    std::cout << "--------------Empty Doublelist test!------------" << std::endl;
     a.print();
     std::cout << "-------------------insert test!-----------------" << std::endl;
     std::cout << "initialize insert!" << std::endl;
@@ -65,8 +65,8 @@ void test_DoubleList(){
     std::cout << "get value test!" << std::endl;
     std::cout << a.get_value(2) << std::endl;
     std::cout << "--------------pointer test!------------" << std::endl;
-    DoubleList<double>::pointer head = a.get_head(), p = head;
-    DoubleList<double>::pointer last = a.get_last();
+    Doublelist<double>::pointer head = a.get_head(), p = head;
+    Doublelist<double>::pointer last = a.get_last();
     int tag = 0;
     std::cout << "increase print" << std::endl;
     for(p; (p != head || tag != 1); p = p->_next, tag = 1){
@@ -86,7 +86,7 @@ void test_DoubleList(){
     std::cout << "last delete!" << std::endl;
     a.del_last().print();
 }
-
+/*
 void test_Arraystack(){
     Arraystack<int> a;
     a.push(10).push(20).push(30);
@@ -148,7 +148,7 @@ void test_Listqueue(){
 
 int main(){
 
-    test_Singlelist();
+    test_Doublelist();
 
     return 0;
 }
