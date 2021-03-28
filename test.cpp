@@ -86,20 +86,28 @@ void test_Doublelist(){
     std::cout << "last delete!" << std::endl;
     a.del_last().print();
 }
-/*
+
 void test_Arraystack(){
-    Arraystack<int> a;
-    a.push(10).push(20).push(30);
-    std::cout << a.size() <<std::endl;
+    Arraystack<int> a(3);
+    std::cout << "push and full push test!" << std::endl;
+    a.push(10).push(20).push(30).push(40);
+    std::cout << "print test!" << std::endl;
+    int* p = a.get_array();
+    for(int i = 0; i < a.size(); ++i){
+        std::cout << p[i] << std::endl;
+    }
+    std::cout << "size and pop test!" << std::endl;
+    std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
-    std::cout << a.size() <<std::endl;
+    std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
-    std::cout << a.size() <<std::endl;
+    std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
-    std::cout << a.size() <<std::endl;
+    std::cout << "empty get top and pop test!" << std::endl;
+    std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
 }
-
+/*
 void test_Liststack(){
     Liststack<int> a;
     a.push(10).push(20).push(30);
@@ -148,7 +156,7 @@ void test_Listqueue(){
 
 int main(){
 
-    test_Doublelist();
+    test_Arraystack();
 
     return 0;
 }
