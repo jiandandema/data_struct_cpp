@@ -117,6 +117,7 @@ inline
 Doublelist<T>& Doublelist<T>::print(){
     if(this->IsEmpty()){
         std::cout << "Doublelist is empty!" << std::endl;
+        return *this;
     }
     DoubleNode<T>* p = _head->_next;
     for(int i = 0; i < _count; ++i){
