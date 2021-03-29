@@ -89,21 +89,21 @@ void test_Doublelist(){
 
 void test_Arraystack(){
     Arraystack<int> a(3);
-    std::cout << "push and full push test!" << std::endl;
+    std::cout << "--------------------Push and full push test!---------------------" << std::endl;
     a.push(10).push(20).push(30).push(40);
-    std::cout << "print test!" << std::endl;
+    std::cout << "----------------------Print test!-------------------" << std::endl;
     int* p = a.get_array();
     for(int i = 0; i < a.size(); ++i){
         std::cout << p[i] << std::endl;
     }
-    std::cout << "size and pop test!" << std::endl;
+    std::cout << "----------------------------Size and pop test!--------------------" << std::endl;
     std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
     std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
     std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
-    std::cout << "empty get top and pop test!" << std::endl;
+    std::cout << "------------------------------------Empty get top and pop test!------------------------------" << std::endl;
     std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
 }
@@ -112,12 +112,14 @@ void test_Liststack(){
     Liststack<int> a;
     a.print();
     a.push(10).push(20).push(30);
+    std::cout << "----------------------Size and print test!-------------------" << std::endl;
     std::cout << a.size() <<std::endl;a.print();
     std::cout << a.get_top() <<std::endl; a.pop();
     std::cout << a.size() <<std::endl;a.print();
     std::cout << a.get_top() <<std::endl; a.pop();
     std::cout << a.size() <<std::endl;a.print();
     std::cout << a.get_top() <<std::endl; a.pop();
+    std::cout << "------------------------------------Empty get top and pop test!------------------------------" << std::endl;
     std::cout << a.size() <<std::endl;a.print();
     std::cout << a.get_top() <<std::endl; a.pop();
 }
@@ -125,41 +127,40 @@ void test_Liststack(){
 
 void test_Arrayqueue(){
     Arrayqueue<int> a(4);
-    std::cout << "push test and out-range push test!" << std::endl;
+    std::cout << "-------------------------Push test and out-range push test!-----------------------" << std::endl;
     a.push(10).push(20).push(30).push(40).push(50);
     std::cout << a.get_head() << std::endl;
-    std::cout << "pop test and loop push test!" << std::endl;
+    std::cout << "----------------------Pop test and loop push test!------------------------" << std::endl;
     a.pop();
     std::cout << a.get_head() << std::endl;
     a.push(50).push(60);
-    std::cout << "check every element in Arrayqueue is right!" << std::endl;
+    std::cout << "--------------------------check every element in Arrayqueue is right!-----------------------" << std::endl;
     std::cout << a.get_head() << std::endl;
     for(int i = 0; i < 4; ++i)
         std::cout << a.get_array()[i] << std::endl;
 }
 
-/*
+
 void test_Listqueue(){
     Listqueue<int> a;
-    std::cout << "push test and out-range push test!" << std::endl;
-    a.push(10).push(20).push(30).push(40).push(50);
+    std::cout << "-------------------Empty Listqueue test!-------------------" << std::endl;
+    a.pop().print();
+    std::cout << "-------------------Push test and out-range push test!------------------" << std::endl;
+    a.push(10).push(20).push(30).push(40).push(50).print();
     std::cout << a.get_head() << std::endl;
-    std::cout << "pop test and loop push test!" << std::endl;
-    a.pop();
+    std::cout << "--------------------Pop test and loop push test!----------------------" << std::endl;
+    a.pop().print();
     std::cout << a.get_head() << std::endl;
     a.push(500).push(600);
-    std::cout << "check every element in Arrayqueue is right!" << std::endl;
-    Listqueue<int>::pointer p = a.get_list();
-    for(p; p != NULL; p = p->_next){
-        std::cout << p->_value << std::endl;
-    }
+    std::cout << "-------------------------Check every element in Arrayqueue is right!------------------" << std::endl;
+    a.print();
 }
-*/
+
 
 
 int main(){
 
-    test_Liststack();
+    test_Listqueue();
 
     return 0;
 }
