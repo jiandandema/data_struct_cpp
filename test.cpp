@@ -107,19 +107,21 @@ void test_Arraystack(){
     std::cout << "size: " << a.size() <<std::endl;
     std::cout << a.get_top() <<std::endl; a.pop();
 }
-/*
+
 void test_Liststack(){
     Liststack<int> a;
+    a.print();
     a.push(10).push(20).push(30);
-    std::cout << a.size() <<std::endl;
+    std::cout << a.size() <<std::endl;a.print();
     std::cout << a.get_top() <<std::endl; a.pop();
-    std::cout << a.size() <<std::endl;
+    std::cout << a.size() <<std::endl;a.print();
     std::cout << a.get_top() <<std::endl; a.pop();
-    std::cout << a.size() <<std::endl;
+    std::cout << a.size() <<std::endl;a.print();
     std::cout << a.get_top() <<std::endl; a.pop();
-    std::cout << a.size() <<std::endl;
+    std::cout << a.size() <<std::endl;a.print();
     std::cout << a.get_top() <<std::endl; a.pop();
 }
+
 
 void test_Arrayqueue(){
     Arrayqueue<int> a(4);
@@ -136,6 +138,7 @@ void test_Arrayqueue(){
         std::cout << a.get_array()[i] << std::endl;
 }
 
+/*
 void test_Listqueue(){
     Listqueue<int> a;
     std::cout << "push test and out-range push test!" << std::endl;
@@ -156,7 +159,7 @@ void test_Listqueue(){
 
 int main(){
 
-    test_Arraystack();
+    test_Liststack();
 
     return 0;
 }
