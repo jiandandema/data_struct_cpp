@@ -12,6 +12,7 @@ public:
 public:
     SingleNode(const T& value, int index = 0, SingleNode<T>* next = NULL)
         : _value(value), _index(index), _next(next) {}
+    SingleNode() = default;
 };
 
 template <typename T>
@@ -25,6 +26,7 @@ public:
 public:
     DoubleNode(const T& value,const int& index = 0, DoubleNode<T>* next = NULL, DoubleNode<T>* pre = NULL)
         : _value(value), _index(index), _next(next), _pre(pre) {}
+    DoubleNode() = default;
 };
 
 
