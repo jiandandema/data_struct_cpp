@@ -29,5 +29,18 @@ public:
     DoubleNode() = default;
 };
 
+template <typename T>
+class BSNode
+{
+public:
+    T _value;
+    BSNode<T>* _parent;
+    BSNode<T>* _left;
+    BSNode<T>* _right;
+public:
+    BSNode(const T& value, BSNode<T>* parent = NULL, BSNode<T>* left = NULL, BSNode<T>* right = NULL)
+        : _value(value), _parent(parent), _left(left), _right(right) {}
+    BSNode() = default;
+};
 
 #endif
