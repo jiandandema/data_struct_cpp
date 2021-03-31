@@ -157,10 +157,20 @@ void test_Listqueue(){
 
 void test_BStree(){
     BStree<int> a;
-    a.insert(1).insert(2).insert(10).insert(4).insert(7).insert(5).insert(9).insert(3).insert(6).insert(8).insert(0).insert(1);
+    std::cout << "-----------------------------insert test---------------------------------------\n";
+    a.insert(3).insert(1).insert(4).insert(5).insert(2).insert(1);
     a.preOder();
     a.inOder();
     a.postOder();
+    std::cout << "-----------------------------remove test---------------------------------------\n";
+    a.remove(2);
+    a.preOder();
+    a.inOder();
+    a.postOder();
+    a.remove(10);
+    a.inOder();
+    a.remove(1).remove(3).remove(4).remove(1).remove(5).remove(10);
+    a.inOder();
 }
 
 int main(){
