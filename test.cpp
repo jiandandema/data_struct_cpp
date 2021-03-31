@@ -6,6 +6,7 @@
 #include "Liststack.h"
 #include "Arrayqueue.h"
 #include "Listqueue.h"
+#include "BStree.h"
 
 void test_Singlelist(){
     Singlelist<double> a;
@@ -124,7 +125,6 @@ void test_Liststack(){
     std::cout << a.get_top() <<std::endl; a.pop();
 }
 
-
 void test_Arrayqueue(){
     Arrayqueue<int> a(4);
     std::cout << "-------------------------Push test and out-range push test!-----------------------" << std::endl;
@@ -139,7 +139,6 @@ void test_Arrayqueue(){
     for(int i = 0; i < 4; ++i)
         std::cout << a.get_array()[i] << std::endl;
 }
-
 
 void test_Listqueue(){
     Listqueue<int> a;
@@ -156,11 +155,17 @@ void test_Listqueue(){
     a.print();
 }
 
-
+void test_BStree(){
+    BStree<int> a;
+    a.insert(1).insert(2).insert(10).insert(4).insert(7).insert(5).insert(9).insert(3).insert(6).insert(8).insert(0).insert(1);
+    a.preOder();
+    a.inOder();
+    a.postOder();
+}
 
 int main(){
 
-    test_Listqueue();
+    test_BStree();
 
     return 0;
 }
