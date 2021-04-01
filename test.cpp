@@ -162,8 +162,10 @@ void test_BStree(){
     a.preOder();
     a.inOder();
     a.postOder();
+    std::cout << "max: " << a.max() << " min: " << a.min() << std::endl;
     std::cout << "-----------------------------remove test---------------------------------------\n";
-    a.remove(2);
+    a.remove(5);
+    std::cout << "max: " << a.max() << " min: " << a.min() << std::endl;
     a.preOder();
     a.inOder();
     a.postOder();

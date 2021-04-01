@@ -17,6 +17,13 @@ private:
     BSNode<T>* successor(BSNode<T>* node);
 
     BStree<T>& remove(BSNode<T>* node, const T& value);
+
+    BSNode<T>* search(BSNode<T>* pnode, const T& value);
+
+    void destroy(BSNode<T>* pnode);
+
+    T& min(BSNode<T>* pnode);
+    T& max(BSNode<T>* pnode);
 public:
     BStree();
     ~BStree();
@@ -28,20 +35,40 @@ public:
     void postOder();
 
     BStree<T>& remove(const T& value);
+
+    BSNode<T>* search_iterator(const T& value);
+    BSNode<T>* search_recursion(const T& value);
+
+    T& min();
+    T& max();
 };
 
 template <typename T>
 inline
-BStree<T>::BStree()
-{
+BStree<T>::BStree(){
     _root = NULL;
 }
 
+template <typename T>
+inline
+void BStree<T>::destroy(BSNode<T>* pnode){
+    if(pnode == NULL)
+        return;
+
+    if(pnode->_left)
+        destroy(pnode->_left);
+
+    if(pnode->_right)
+        destroy(pnode->_right);
+
+    delete pnode;
+    pnode = NULL;
+}
 
 template <typename T>
 inline
-BStree<T>::~BStree()
-{
+BStree<T>::~BStree(){
+    destroy(_root);
 }
 
 template <typename T>
@@ -226,6 +253,72 @@ template <typename T>
 inline
 BStree<T>& BStree<T>::remove(const T& value){
     return remove(_root, value);
+}
+
+template <typename T>
+inline
+BSNode<T>* BStree<T>::search_iterator(const T& value){
+    BSNode<T>* pnode = _root;
+
+    while(pnode){
+        if(value > pnode->_value)
+            pnode = pnode->_right;
+        else if(value < pnode->_value)
+            pnode = pnode->_left;
+        else
+            break;
+    }
+
+    return pnode;
+}
+
+template <typename T>
+inline
+BSNode<T>* BStree<T>::search(BSNode<T>* pnode, const T& value){
+    if(pnode == NULL)
+        return NULL;
+    if(value == pnode->_value)
+        return pnode;
+    else if(value > pnode->_value)
+        return search(pnode->_right,value);
+    else
+        return search(pnode->_left,value);
+}
+
+template <typename T>
+inline
+BSNode<T>* BStree<T>::search_recursion(const T& value){
+    return search(_root,value);
+}
+
+template <typename T>
+inline
+T& BStree<T>::max(BSNode<T>* pnode){
+    while(pnode->_right)
+        pnode = pnode->_right;                  //vedio used recusion to find max, while i used loop
+
+    return pnode->_value;
+}
+
+template <typename T>
+inline
+T& BStree<T>::min(BSNode<T>* pnode){
+    while(pnode->_left)
+        pnode = pnode->_left;                  //vedio used recusion to find min, while i used loop
+
+    return pnode->_value;
+}
+
+template <typename T>
+inline
+T& BStree<T>::min(){
+    return min(_root);
+}
+
+template <typename T>
+inline
+T& BStree<T>::max(){
+    return max(_root);
 }
 
 #endif
