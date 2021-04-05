@@ -93,7 +93,7 @@ BStree<T>& BStree<T>::insert(const T& value){
             p = p->_left;
         }
         else{
-            break;
+            return *this;                   //element should not be equal.
         }
     }
     //insert value and set parent node
