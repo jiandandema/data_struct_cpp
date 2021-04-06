@@ -43,4 +43,18 @@ public:
     BSNode() = default;
 };
 
+template <typename T>
+class AVLNode
+{
+public:
+    T _value;
+    int _height;
+    AVLNode<T>* _left;
+    AVLNode<T>* _right;
+
+    AVLNode(const T& value, AVLNode<T>* left = NULL, AVLNode<T>* right = NULL)
+        :_value(value), _left(left), _right(right), _height(0)
+    {}
+};
+
 #endif
