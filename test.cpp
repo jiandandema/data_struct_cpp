@@ -7,6 +7,9 @@
 #include "Arrayqueue.h"
 #include "Listqueue.h"
 #include "BStree.h"
+#include "AVLTree.h"
+
+#define CHECK_AVLTREE_BUG 1
 
 void test_Singlelist(){
     Singlelist<double> a;
@@ -175,9 +178,39 @@ void test_BStree(){
     a.inOder();
 }
 
+void test_AVLtree(){
+    AVLTree<int> a;
+    for (int i = 0; i < 10; i++)
+        a.insert(i);
+    std::cout << "树高：" << a.height() << std::endl;
+
+    std::cout << "中序遍历:" << std::endl;
+    a.InOrder();
+
+
+    std::cout << "删除元素1"<<std::endl;
+    a.remove(1);
+    std::cout << "删除元素5"<<std::endl;
+    a.remove(5);
+#if CHECK_AVLTREE_BUG
+    std::cout << "删除元素6"<<std::endl;
+    a.remove(6);                                //after this code, element 4 is removed to????????
+#endif
+
+    std::cout << "中序遍历:" << std::endl;
+    a.InOrder();
+
+    AVLNode<int>* b = a.search_iterator(5);
+
+    if (b != nullptr)
+        std::cout << b->_value;
+    else
+        std::cout << "无此元素" << std::endl;
+}
+
 int main(){
 
-    test_BStree();
+    test_AVLtree();
 
     return 0;
 }
